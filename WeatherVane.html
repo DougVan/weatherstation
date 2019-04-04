@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Weather Vane</title>
+</head>
+
+<body>
+  <hr size="3" noshade color=blue>
+  <center>
+    <img src="WeatherVane.jpg" alt="Weather Vane Pic">
+    <h1>Weather Vane</h1>
+    <p><em>Grampy's Weather Station Project</em></p>
+    <hr size="3" noshade color=blue>
+  </center>
+  <center>
+    <p>
+      I built this weather vane as a college project in 2001. The idea came to me while taking a break from skiing. In the entryway of the lodge were a set of very nice weather gauges. Brass cases and needles, but the wind direction was indicated with small lamps inset in a compass rose. When the wind was between two major points, two lamps would illuminate. For NNW, both N and NW lamps would come on. I decided for my project I was going to build a weather vane that would always display a wind direction, but only one direction.
+    </p>
+    <img src="SensorMag.jpg" alt="Sensor Picture">
+    <h3>Figure 1</h3>
+    <p>
+      The final design used eight Hall Effect sensors. After several tests I placed the sensors in a way that when the magnet is between major points, two sensor will be active (active low in this case). I designed a working NAND circuit that would give me a single output for each position of the weather vane. This not only gave me a reading at all positions, but also gave me twice the number of readings. The number of NAND gates needed became quite cumbersome and I went to plan B which used an 68HC11 microcontroller. Not only did it simplify my circuitry, it also allowed for storing readings. Figure 1 displays two magnet locations. First the magnet is over North pulling the North sensor low. Each sensor is fed into its own pin of the port and produces an eight bit number. North = hex FE. North Northeast pulls the North sensor low and the Northeast sensor low. North Northeast = hex 7E. Each direction gave a unique input to the microcontroller which was used in the program to produce a unique output. The 68CH11 allowed for the eight sensors to be connected to one eight bit port (Port E). Read the port value and test for a match. This was not the case using an Arduino Uno. To keep the communication pins open there would not be an eight bit port available. After several ideas I decided to give each pin a binary weight. 1,2,4,8,16,32,64,128. At each direction one or two pins would be low and there would be a different summation for each.
+
+    </p>
+      <table border="1">
+        <thead>
+        <tr>
+          <th>Direction</th>
+          <th>8 Bit Reading</th>
+          <th>Binary Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>N</td>
+          <td>11111110</td>
+          <td>254</td>
+        </tr>
+        <tr>
+          <td>NNW</td>
+          <td>11111100</td>
+          <td>252</td>
+        </tr>
+        <tr>
+          <td>NW</td>
+          <td>11111101</td>
+          <td>253</td>
+      </tr>
+      <tr>
+        <td>WNW</td>
+        <td>11111001</td>
+        <td>249</td>
+      </tr>
+      <tr>
+        <td>W</td>
+        <td>11111011</td>
+        <td>251</td>
+      </tr>
+      <tr>
+        <td>WSW</td>
+        <td>11110011</td>
+        <td>243</td>
+    </tr>
+    <tr>
+      <td>SW</td>
+      <td>11110111</td>
+      <td>247</td>
+    </tr>
+    <tr>
+      <td>SSW</td>
+      <td>11100111</td>
+      <td>231</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>11101111</td>
+      <td>239</td>
+  </tr>
+  <tr>
+    <td>SSE</td>
+    <td>11001111</td>
+    <td>207</td>
+  </tr>
+  <tr>
+    <td>SE</td>
+    <td>11011111</td>
+    <td>223</td>
+  </tr>
+  <tr>
+  <td>ESE</td>
+    <td>10011111</td>
+    <td>159</td>
+</tr>
+<tr>
+  <td>E</td>
+  <td>10111111</td>
+  <td>191</td>
+</tr>
+<tr>
+  <td>ENE</td>
+  <td>00111111</td>
+  <td>63</td>
+</tr>
+<tr>
+  <td>NE</td>
+  <td>01111111</td>
+  <td>127</td>
+</tr>
+<tr>
+<td>NNE</td>
+<td>01111110</td>
+<td>126</td>
+</tr>
+      </tbody>
+      </table>
+      <h3>Truth Table - Arduino Uno Input</h3>
+  </center>
+  <br />
+  <center>
+    <img src="HallSenCrkBrd.jpg" alt="Sensor Circuit Board">
+      <h3>Figure 2</h3>
+      <P>
+        The circuit board in figure 2 was created in a CAD program. Eight Hall Effect sensors and eight pullup resistors.
+      </P>
+  </center>
+  <br />
+  <center>
+    <img src="Build.jpg" alt="Build Picture">
+    <h3>Figure 3</h3>
+    <p>Figure 3 is the final build. The top 3” pvc cap is fastened with three thumb screws for easy access to the circuit board and magnet assembly. The steel galvanized conduit is threaded into a tapped hole in the PVC housing.</p>
+  </center>
+  <br />
+  <hr size="3" noshade color=blue>
+  <p>Download Sketch Code</p>
+  <a href="Weather_Vane_1.ino">Weather Vane Arduino Sketch Code</a>
+  <br>
+  <br>
+  <hr size="3" noshade color=blue>
+  <hr size="3" noshade color=blue>
+</body>
+
+</html>
