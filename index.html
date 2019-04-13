@@ -6,17 +6,7 @@
   <meta charset="utf-8">
   <title>😎Grampy's Weather Station</title>
 
-<!-- CSS Global Style Code -->
-  <style>
-  body{
-    /*CSS Background Body Color*/
-    background-color:#738598;
-  }
-
-  hr {
-    size="3" noshade color=#1cb3c8;
-  }
-  </style>
+<link rel="stylesheet" href="CSS\styles.css"> <!-- external css link -->
 <meta name="description" content="This site is for following the construstion and of a microcontroller weather station, which will include an Arduino Uno weather vane, thermometer and anemeter and to share sketch code and design elements with other hobbiest.">
 
 </head>
@@ -27,14 +17,14 @@
     <center>
       <img src="Grampy.jpg" alt="Doug's Pic">
       <h1>Grampy's Weather Station Project</h1>
-      <p><em>Electronic Hobbyist</em></p>
+      <h3><em>Electronic Hobbyist</em></h3> <!-- emphasized word, italic -->
       <hr size="6" noshade color=#3c415e>
       <hr>
     </center>
 
   <h3>Station Elements</h3>
-  <ol>
-    <li><a href="WeatherVane.html">Weather Vane</a></li>
+  <ol> <!-- ordered list-->
+    <li><a href="WeatherVane.html">Weather Vane</a></li> <!-- hyperlink, line item-->
     <li><a href="Anemometer.html">Anemometer</a></li>
     <li><a href="Thermometer.html">Thermometer</a></li>
     <li>Weather Web Site</li>
@@ -42,9 +32,9 @@
   <hr>
     <h3>Project Progress</h3>
     <table border="1">
-      <thead>
-      <tr>
-        <th>Element</th>
+      <thead> <!-- begin table head -->
+      <tr> <!-- table row -->
+        <th>Element</th> <!-- table header -->
         <th>Hardware</th>
         <th>Program</th>
         <th>Calabrated</th>
@@ -52,9 +42,9 @@
         <th>Web Page Connection</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody> <!-- begin table body -->
       <tr>
-        <td>Weather Van</td>
+        <td>Weather Van</td> <!-- table data -->
         <td>Complete</td>
         <td>Segment Tested</td>
         <td>✅</td>
@@ -85,8 +75,8 @@
     <p>4/7/19 to 4/13/19-Studying AJAX code to auto update web page parameters</p>
   <hr>
   <h3>Links</h3>
-  <ul>
-    <li><a href="http://home.metrocast.net/~kb1mgl/Web%20Page.html">Doug's Web Page</a></li>
+  <ul> <!-- unordered list-->
+    <li><a href="http://home.metrocast.net/~kb1mgl/Web%20Page.html">Doug's Web Page</a></li>  <!-- hyperlink, line item-->
     <li><a href="http://192.168.1.4">Arduino Web Server</a></li>
     <li><a href="http://www.spaceweather.com/">Space Weather</a>
     </li>
@@ -94,7 +84,7 @@
   <a download href="https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf">Download HTML Cheetsheet</a>
 
   <hr>
-  <p>Send Grampy an email</p>
+  <h3>Send Grampy an email</h3>
   <form action="mailto:grampytech@gmail.com" method="post" enctype="text/plain">
     <label>-Your Name:   </label>
     <input type="text" name="Name" value=""><br>
