@@ -1,15 +1,19 @@
 /* CSS Global Style Code */
+body {
+  /*CSS Background Body Color */
+  background-color: #C0C0C0;
+}
 
-  body{
-    /*CSS Background Body Color */
-    background-color:#C0C0C0;
-  }
-
-
-  h1 {
+h1 {
   color: #3c415e;
 }
 
-  h3 {
-color: #3c415e;
+h3 {
+  color: #3c415e;
+}
+
+p {
+  font-family: arial, verdana, sans-serif;
+  font-size: 14pt;
+  color: #3c415e;
 }
