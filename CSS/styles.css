@@ -13,6 +13,7 @@ h3 {
 }
 
 p {
+  max-width: 60%;
   font-family: arial, verdana, sans-serif;
   font-size: 14pt;
   color: #3c415e;
